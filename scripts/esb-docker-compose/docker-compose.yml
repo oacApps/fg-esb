@@ -1,0 +1,122 @@
+version: '3'
+services:
+  1foryou-trader-esb:
+    image: flash/1foryou-trader-esb:1.0.4
+    ports:
+      - 9008:9008
+    volumes:
+      - /var/log/esb/1foryou-trader:/var/log/1foryou-trader
+      - /opt/apps/1forYouTrader/1.0.4:/opt/apps
+    container_name: 1foryou-trader-esb
+
+  1foryou-esb:
+    image: flash/1foryou-esb:1.0.4
+    ports:
+      - 9006:9006
+    volumes:
+      - /var/log/esb/1foryou:/var/log/1foryou
+      - /opt/apps/1forYou/1.0.4:/opt/apps
+    container_name: 1foryou-esb
+    links:
+      - 1foryou-trader-esb
+    depends_on:
+      - 1foryou-trader-esb
+
+  rica-esb:
+    image: flash/rica-esb:1.0.0
+    ports:
+      - 9014:9014
+    volumes:
+      - /var/log/esb/rica:/var/log/rica
+      - /opt/apps/rica/1.0.0:/opt/apps
+    container_name: rica-esb
+
+  aggregation-payat-esb:
+    image: flash/aggregation-payat-esb:1.0.1
+    ports:
+      - 9011:9011
+    volumes:
+      - /var/log/esb/aggregation-payat:/var/log/aggregation-payat
+      - /opt/apps/aggregation-payat/1.0.1:/opt/apps
+    container_name: aggregation-payat-esb
+
+  aggregation-dstv-esb:
+    image: flash/aggregation-dstv-esb:1.0.1
+    ports:
+      - 9012:9012
+    volumes:
+      - /var/log/esb/aggregation-dstv:/var/log/aggregation-dstv
+      - /opt/apps/aggregation-dstv/1.0.1:/opt/apps
+    container_name: aggregation-dstv-esb
+
+  aggregation-electricity-esb:
+    image: flash/aggregation-electricity-esb:1.0.1
+    ports:
+      - 9013:9013
+    volumes:
+      - /var/log/esb/aggregation-electricity:/var/log/aggregation-electricity
+      - /opt/apps/aggregation-electricity/1.0.1:/opt/apps
+    container_name: aggregation-electricity-esb
+
+  electricity-esb:
+    image: flash/electricity-esb:1.0.1
+    ports:
+      - 9002:9002
+    volumes:
+      - /var/log/esb/electricity:/var/log/electricity
+      - /opt/apps/electricity/1.0.1:/opt/apps
+    container_name: electricity-esb
+
+  giftvoucher-esb:
+    image: flash/giftvoucher-esb:1.0.2
+    ports:
+      - 9003:9003
+    volumes:
+      - /var/log/esb/giftVoucher:/var/log/giftVoucher
+      - /opt/apps/giftvoucher/1.0.2:/opt/apps
+    container_name: giftvoucher-esb
+
+  utils-sms-esb:
+    image: flash/utils-sms-esb:1.0.0
+    ports:
+      - 9010:9010
+    volumes:
+      - /var/log/esb/util-sms:/var/log/util-sms
+      - /opt/apps/utils-sms/1.0.0:/opt/apps
+    container_name: utils-sms-esb
+
+  conditional-routing-esb:
+    image: flash/conditional-routing:1.0.4
+    ports:
+      - 9007:9007
+    volumes:
+      - /var/log/esb/conditional-routing:/var/log/conditional-routing
+      - /opt/apps/conditionalRouting/1.0.4:/opt/apps
+    container_name: conditional-routing-esb
+
+  cellular-esb-01:
+    image: flash/cellular-esb:1.0.1
+    ports:
+      - 9904:9004
+    volumes:
+      - /var/log/esb/cellular-01:/var/log/cellular
+      - /opt/apps/cellular/1.0.1:/opt/apps
+    container_name: cellular-esb-01
+
+  cellular-esb-02:
+    image: flash/cellular-esb:1.0.1
+    ports:
+      - 9905:9004
+    volumes:
+      - /var/log/esb/cellular-02:/var/log/cellular
+      - /opt/apps/cellular/1.0.1:/opt/apps
+    container_name: cellular-esb-02
+
+  cellular-esb-03:
+    image: flash/cellular-esb:1.0.1
+    ports:
+      - 9906:9004
+    volumes:
+      - /var/log/esb/cellular-03:/var/log/cellular
+      - /opt/apps/cellular/1.0.1:/opt/apps
+    container_name: cellular-esb-03

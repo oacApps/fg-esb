@@ -1,0 +1,55 @@
+version: "3"
+services:
+  rabbit1:
+    image: rabbitmq:3.6.6-management
+    hostname: rabbitHost01
+    environment:
+      RABBITMQ_ERLANG_COOKIE: "secretstring"
+      RABBITMQ_NODENAME: rabbitNode01
+    volumes:
+      - "./rabbitmq.config:/etc/rabbitmq/rabbitmq.config"
+      - "./definitions.json:/etc/rabbitmq/definitions.json"
+    ports:
+      - "4384:4369"
+      - "5686:5671"
+      - "5687:5672"
+      - "15686:15671"
+      - "15687:15672"
+      - "25687:25672"
+
+  rabbit2:
+    image: rabbitmq:3.6.6-management
+    hostname: rabbitHost02
+    environment:
+      RABBITMQ_ERLANG_COOKIE: "secretstring"
+      RABBITMQ_NODENAME: rabbitNode02
+    volumes:
+      - "./rabbitmq.config:/etc/rabbitmq/rabbitmq.config"
+      - "./definitions.json:/etc/rabbitmq/definitions.json"
+    ports:
+      - "4399:4369"
+      - "5701:5671"
+      - "5702:5672"
+      - "15701:15671"
+      - "15702:15672"
+      - "25702:25672"
+  rabbit3:
+    image: rabbitmq:3.6.6-management
+    hostname: rabbitHost03
+    environment:
+      RABBITMQ_ERLANG_COOKIE: "secretstring"
+      RABBITMQ_NODENAME: rabbitNode03
+    volumes:
+      - "./rabbitmq.config:/etc/rabbitmq/rabbitmq.config"
+      - "./definitions.json:/etc/rabbitmq/definitions.json"
+    ports:
+      - "4414:4369"
+      - "5716:5671"
+      - "5717:5672"
+      - "15716:15671"
+      - "15717:15672"
+      - "25717:25672"
+networks:
+  default:
+    external:
+      name: rabbitmq-cluster-network

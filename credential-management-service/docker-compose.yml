@@ -1,0 +1,13 @@
+version: '3.3'
+services:
+  credential-management-service:
+    container_name: credential-management-service
+    image: flashdevops.azurecr.io/credential-management-service:${TAG}
+    restart: "unless-stopped"
+    ports:
+      - "9050:9050"
+    volumes:
+      - /var/log/esb/credential-manager:/var/log/credential-manager
+    environment:
+      CM_SOAP_CREDENTIAL_QA: ${CM_SOAP_CREDENTIAL_QA}
+      CM_REST_CREDENTIAL_QA: ${CM_REST_CREDENTIAL_QA}

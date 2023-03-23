@@ -1,0 +1,88 @@
+server:
+  port: '9050'
+  servlet:
+    context-path: /credential
+  tomcat:
+    accesslog:
+      directory: /var/log/credential-manager/tomcat
+      enabled: true
+    connection-timeout: 35s
+
+rest-api:
+  ignoreCertificate: true
+
+wso2-identity-server:
+  isUsingSandbox: true
+  isUsingRestApi: false
+  production:
+    url:
+      base: http://localhost
+      categories:
+        user:
+          scim: /scim/Users
+          scim2: /scim2/Users
+  sandbox:
+    url:
+      base: https://middleware-km.qa.flash.co.za
+      categories:
+        user:
+          scim: /services/RemoteUserStoreManagerService
+          scim2: /scim2/Users
+        group:
+          scim: /services/RemoteUserStoreManagerService
+          scim2: /scim2/Groups
+        me:
+          scim: /services/RemoteUserStoreManagerService
+          scim2: /scim2/Me
+    soap:
+      contextPath: com.example.consumingwebservice.wsdl
+      defaultUri: http://localhost:8080/ws
+    userManagement:
+      domain: GENERALIDENTITIES
+      profileRole: Internal/scim-app-user
+      profileRoleDefaultId: 836adc1b-3b9b-42d2-8231-92e678b40f5f
+      forgetPasswordBaseUrl: http://localhost
+
+certificate-manager:
+  title: Credential Management Service
+  description: API for Credential Management Service
+  contact:
+    name: Muhammed Mashiur Rahman
+    email: muhammed.rahman@flash.co.za
+  terms: http://www.flash.co.za
+  threadpool: 10
+  licence:
+    name: Flash
+    url: http://www.flash.co.za
+
+logging:
+  level:
+    org:
+      apache:
+        catalina: error
+        tomcat: error
+    root: debug
+
+spring:
+  datasource:
+    url: jdbc:h2:mem:credentialmanager
+    username: sa
+    password: password
+    driverClassName: org.h2.Driver
+  jpa:
+    spring.jpa.database-platform: org.hibernate.dialect.H2Dialect
+    defer-datasource-initialization: true
+  h2:
+    console.enabled: true
+    console.path: /h2-console
+    console.settings.trace: false
+    spring.h2.console.settings.web-allow-others: false
+  mail:
+    host: smtp.gmail.com
+    port: 587
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: wso2.org/products/am
+          jwk-set-uri: https://middleware-am.qa.flash.co.za/oauth2/jwks

@@ -1,0 +1,5 @@
+org\wso2\sample\user\store\manager\internal\AVHCustomUserStoreMgtDSComponent.class
+org\wso2\sample\user\store\manager\PasswordEncription.class
+org\wso2\sample\user\store\manager\PassWordUtil.class
+org\wso2\sample\user\store\manager\AVHCustomUserStoreManagerConstants.class
+org\wso2\sample\user\store\manager\AVHCustomUserStoreManager.class

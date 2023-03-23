@@ -1,0 +1,7 @@
+/target/
+/.idea/
+/docker/Commands.MD
+/resources/application-local.properties
+/resources/application.properties
+/cellular.iml
+application-prod.properties

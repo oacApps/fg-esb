@@ -1,0 +1,98 @@
+[
+    {
+        "voucherType": "1FORYOU",
+        "description": null,
+        "subscription": 0,
+        "anyvalue": {
+            "min": 100,
+            "max": 250000
+        },
+        "value": null,
+        "reprint": true,
+        "voucherTermsOfUseSlip": "1ForYou is a bearer document, for more information visit https://1foryou.com/service/for-you/",
+        "voucherTermsOfUseFull": "1ForYou is a bearer document, for more information visit www.1foryou.com/terms"
+    },
+    {
+        "voucherType": "NETFLIX",
+        "description": null,
+        "subscription": 0,
+        "anyvalue": {
+            "min": 17000,
+            "max": 100000
+        },
+        "value": null,
+        "reprint": true,
+        "voucherTermsOfUseSlip": "To start watching:;Go to;www.netflix.com/code;Enter the code;;No refunds or cancellations. For full terms go to;netflix.com/cardterms",
+        "voucherTermsOfUseFull": "<p>REDEEM ONLINE<br/>\r\nWith streaming movies, television, and original programming, Netflix has something for everyone. Netflix members can watch their favourite entertainment right at home and on any device they want, with no commercials. Ever. Netflix Gift Cards can be used to pay for an existing membership or start a new one. When you give the gift of Netflix, you're giving the gift of a global network filled with great stories that connect us all.</p>\r\n\r\n<p>Netflix Gift Card Terms and Conditions</p>\r\n\r\n<p>Valid only towards the Netflix service via Netflix account (18+ or age of majority to become a member), in South Africa. Entire value credited to your Netflix account upon redemption. Nonrefundable and not redeemable for cash, except where required by law. Does not expire. No resale. Netflix is not responsible for lost or stolen cards or unauthorized use. Full terms apply, visit <a href=\"https://www.netflix.com/cardterms\" target=\"_blank\">www.netflix.com/cardterms</a>. Cards issued by Netflix International B.V.</p>\r\n"
+    },
+    {
+        "voucherType": "ROBLOX",
+        "description": "$10 Roblox credit",
+        "subscription": 0,
+        "anyvalue": null,
+        "value": 15000,
+        "reprint": true,
+        "voucherTermsOfUseSlip": "To redeem, go to;roblox.com/redeem;;Voucher expires only;when full value is re-;deemed on 3 years from;date of issue.;;For fun terms, go to;roblox.com/info/terms;For support:;roblox.com/support;",
+        "voucherTermsOfUseFull": "To redeem, go to;roblox.com/redeem;;Voucher expires only;when full value is re-;deemed on 3 years from;date of issue.;;For fun terms, go to;roblox.com/info/terms;For support:;roblox.com/support;"
+    },
+    {
+        "voucherType": "ROBLOX",
+        "description": "$30 Roblox credit",
+        "subscription": 0,
+        "anyvalue": null,
+        "value": 45000,
+        "reprint": true,
+        "voucherTermsOfUseSlip": "To redeem, go to;roblox.com/redeem;;Voucher expires only;when full value is re-;deemed on 3 years from;date of issue.;;For fun terms, go to;roblox.com/info/terms;For support:;roblox.com/support;",
+        "voucherTermsOfUseFull": "To redeem, go to;roblox.com/redeem;;Voucher expires only;when full value is re-;deemed on 3 years from;date of issue.;;For fun terms, go to;roblox.com/info/terms;For support:;roblox.com/support;"
+    },
+    {
+        "voucherType": "SPOTIFY",
+        "description": "1 month",
+        "subscription": 1,
+        "anyvalue": null,
+        "value": 6600,
+        "reprint": true,
+        "voucherTermsOfUseSlip": "To redeem, go to;spotify.com/redeem;;Valid only in country of purchase. Cannot be transferred or reloaded. Must be redeemed within 3 years of date of purchase.;;For full Terms & Conditions, go to;spotify.com/gift-card",
+        "voucherTermsOfUseFull": "<p>Redeemable only for full price Premium subscription months via spotify.com and cannot be redeemed for discounted or group subscriptions. Cannot be redeemed for cash or credit and cannot be returned or resold (except where required by law). You must have a Spotify account and you must be 13+ and reside in country of purchase. Should you be under the age of 18 and therefore a minor, you confirm that your purchase has been undertaken with the consent and assistance of your parent or legal guardian single-use; the full face-value for an individual account is deducted at redemption and no incremental redemption is. permitted. Spotify isn't responsible for any loss or damage.</p>\r\n\r\n<p>Full terms apply, visit <a href=\"https://www.spotify.com/gift-card\" target=\"_blank\">www.spotify.com/gift-card</a></p>\r\n\r\n<p>Provided by Spotify AB, registration number 556786-5729. Must be redeemed within years of purchase, after which the PIN will expire.</p>\r\n\r\n<p>To redeem your Spotify Premium code:<br/>\r\n1. Log in to spotify.com/redeem<br/>\r\n2. Enter the PIN code on this receipt<br/>\r\n3. Click Redeem Spotify Gift Cards</p>"
+    },
+    {
+        "voucherType": "SPOTIFY",
+        "description": "3 months",
+        "subscription": 1,
+        "anyvalue": null,
+        "value": 19000,
+        "reprint": true,
+        "voucherTermsOfUseSlip": "To redeem, go to;spotify.com/redeem;;Valid only in country of purchase. Cannot be transferred or reloaded. Must be redeemed within 3 years of date of purchase.;;For full Terms & Conditions, go to;spotify.com/gift-card",
+        "voucherTermsOfUseFull": "<p>Redeemable only for full price Premium subscription months via spotify.com and cannot be redeemed for discounted or group subscriptions. Cannot be redeemed for cash or credit and cannot be returned or resold (except where required by law). You must have a Spotify account and you must be 13+ and reside in country of purchase. Should you be under the age of 18 and therefore a minor, you confirm that your purchase has been undertaken with the consent and assistance of your parent or legal guardian single-use; the full face-value for an individual account is deducted at redemption and no incremental redemption is. permitted. Spotify isn't responsible for any loss or damage.</p>\r\n\r\n<p>Full terms apply, visit <a href=\"https://www.spotify.com/gift-card\" target=\"_blank\">www.spotify.com/gift-card</a></p>\r\n\r\n<p>Provided by Spotify AB, registration number 556786-5729. Must be redeemed within years of purchase, after which the PIN will expire.</p>\r\n\r\n<p>To redeem your Spotify Premium code:<br/>\r\n1. Log in to spotify.com/redeem<br/>\r\n2. Enter the PIN code on this receipt<br/>\r\n3. Click Redeem Spotify Gift Cards</p>"
+    },
+    {
+        "voucherType": "SPOTIFY",
+        "description": "6 months",
+        "subscription": 1,
+        "anyvalue": null,
+        "value": 36000,
+        "reprint": true,
+        "voucherTermsOfUseSlip": "To redeem, go to;spotify.com/redeem;;Valid only in country of purchase. Cannot be transferred or reloaded. Must be redeemed within 3 years of date of purchase.;;For full Terms & Conditions, go to;spotify.com/gift-card",
+        "voucherTermsOfUseFull": "<p>Redeemable only for full price Premium subscription months via spotify.com and cannot be redeemed for discounted or group subscriptions. Cannot be redeemed for cash or credit and cannot be returned or resold (except where required by law). You must have a Spotify account and you must be 13+ and reside in country of purchase. Should you be under the age of 18 and therefore a minor, you confirm that your purchase has been undertaken with the consent and assistance of your parent or legal guardian single-use; the full face-value for an individual account is deducted at redemption and no incremental redemption is. permitted. Spotify isn't responsible for any loss or damage.</p>\r\n\r\n<p>Full terms apply, visit <a href=\"https://www.spotify.com/gift-card\" target=\"_blank\">www.spotify.com/gift-card</a></p>\r\n\r\n<p>Provided by Spotify AB, registration number 556786-5729. Must be redeemed within years of purchase, after which the PIN will expire.</p>\r\n\r\n<p>To redeem your Spotify Premium code:<br/>\r\n1. Log in to spotify.com/redeem<br/>\r\n2. Enter the PIN code on this receipt<br/>\r\n3. Click Redeem Spotify Gift Cards</p>"
+    },
+    {
+        "voucherType": "UBER",
+        "description": null,
+        "subscription": 0,
+        "anyvalue": null,
+        "value": 10000,
+        "reprint": true,
+        "voucherTermsOfUseSlip": "Gift cards cannot be transferred or reloaded. Can only be used on rides or eats. Valid in country of purchase. Redeem in Uber app.;uber.com/legal/gift",
+        "voucherTermsOfUseFull": "By using this voucher code, you accept the following terms and conditions: This voucher code may only be redeemed via the Uber® or Uber Eats app within the Republic of South Africa in cities where Uber or Uber Eats is available. The value associated with this voucher code expires 3 years after the date of first activation. Misuse of this voucher code may constitute fraud. We may limit or decline to honour the voucher code value if you are unable to present satisfactory proof of your identity upon our request. This voucher code cannot be redeemed for cash, refunded, or returned, except as required by law. You may be required to add a secondary payment method to use the voucher code value with Uber® or Uber Eats apps. Issuer is not responsible for lost or stolen voucher codes, or unauthorized use. This voucher code is issued by Uber B.V. For balance, full terms and conditions, and customer service, visit <a href=\"https://uber.com/legal/gift\" target=\"_blank\">uber.com/legal/gift</a>."
+    },
+    {
+        "voucherType": "UBER",
+        "description": "",
+        "subscription": 0,
+        "anyvalue": null,
+        "value": 20000,
+        "reprint": true,
+        "voucherTermsOfUseSlip": "Gift cards cannot be transferred or reloaded. Can only be used on rides or eats. Valid in country of purchase. Redeem in Uber app.;uber.com/legal/gift",
+        "voucherTermsOfUseFull": "By using this voucher code, you accept the following terms and conditions: This voucher code may only be redeemed via the Uber® or Uber Eats app within the Republic of South Africa in cities where Uber or Uber Eats is available. The value associated with this voucher code expires 3 years after the date of first activation. Misuse of this voucher code may constitute fraud. We may limit or decline to honour the voucher code value if you are unable to present satisfactory proof of your identity upon our request. This voucher code cannot be redeemed for cash, refunded, or returned, except as required by law. You may be required to add a secondary payment method to use the voucher code value with Uber® or Uber Eats apps. Issuer is not responsible for lost or stolen voucher codes, or unauthorized use. This voucher code is issued by Uber B.V. For balance, full terms and conditions, and customer service, visit <a href=\"https://uber.com/legal/gift\" target=\"_blank\">uber.com/legal/gift</a>."
+    }
+]

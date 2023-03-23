@@ -1,0 +1,67 @@
+# Docker and Maven
+# Build and push an image to Azure Container Registry
+# https://docs.microsoft.com/azure/devops/pipelines/languages/docker
+#
+# TODO: Create template pipeline for maven-docker and use it here
+
+trigger:
+- cicd
+
+resources:
+- repo: self
+
+variables:
+  artifactID: 'conditional-routing' #From POM file
+  MyRunNumber: '1.0.0.$(Build.BuildNumber)'
+  containerRegistry: 'ACR Connection'
+  registry: 'flashmiddleware.azurecr.io'
+  vmImageName: 'ubuntu-latest'
+
+stages:
+- stage: Build
+  displayName: Build and push stage
+  jobs:  
+
+  - job: Build
+    displayName: Build
+    pool:
+      vmImage: $(vmImageName)
+    
+    steps:
+    #This step is no longer required as common-library artifact feed has been setup. 
+    # - task: Maven@3
+    #   displayName: Build app library
+    #   inputs:
+    #     mavenPomFile: 'library/pom.xml'
+    #     mavenOptions: '-Xmx3072m'
+    #     javaHomeOption: 'JDKVersion'
+    #     jdkVersionOption: '1.8'
+    #     jdkArchitectureOption: 'x64'
+    #     goals: clean install
+    #     options: package -Dmaven.test.skip
+    #     publishJUnitResults: false
+    
+    - task: Maven@3
+      displayName: Build app
+      inputs:
+        mavenPomFile: 'pom.xml'
+        mavenOptions: '-Xmx3072m'
+        javaHomeOption: 'JDKVersion'
+        jdkVersionOption: '1.11'
+        jdkArchitectureOption: 'x64'
+        options: package -Dmaven.test.skip
+        publishJUnitResults: false
+        mavenAuthenticateFeed: true
+        goals: clean install
+
+    - task: Docker@2
+      displayName: Login to ACR and Tag image dynamically
+      inputs:
+        command: login
+        containerRegistry: '$(containerRegistry)'
+    - script: |
+        set -e
+        docker image ls
+        docker tag $(registry)/$(artifactID):latest $(registry)/$(artifactID):$(MyRunNumber)
+        docker image push $(registry)/$(artifactID):$(MyRunNumber)
+        docker image ls

@@ -1,0 +1,26 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Created-By: Apache Maven Bundle Plugin
+Tool: Bnd-1.43.0
+Bnd-LastModified: 1646740256215
+Export-Package: org.wso2.sample.user.store.manager;uses:="org.wso2.carbo
+ n,org.wso2.carbon.utils,org.wso2.carbon.user.core,org.apache.commons.lo
+ gging,org.wso2.carbon.user.core.util,org.wso2.carbon.user.api,org.wso2.
+ carbon.user.core.claim,org.wso2.carbon.user.core.jdbc,org.wso2.carbon.u
+ ser.core.profile,javax.crypto,javax.crypto.spec";version="2.0.2"
+Import-Package: javax.crypto,javax.crypto.spec,javax.sql,org.apache.comm
+ ons.logging;version="[1.2,2)",org.osgi.framework;version="[1.7,2)",org.
+ osgi.service.component;version="[1.2,2)",org.wso2.carbon;version="[4.4,
+ 5)",org.wso2.carbon.user.api;version="[1.0,2)",org.wso2.carbon.user.cor
+ e;version="[4.4,5)",org.wso2.carbon.user.core.claim;version="[4.4,5)",o
+ rg.wso2.carbon.user.core.jdbc;version="[4.4,5)",org.wso2.carbon.user.co
+ re.profile;version="[4.4,5)",org.wso2.carbon.user.core.service;version=
+ "[4.4,5)",org.wso2.carbon.user.core.util;version="[4.4,5)",org.wso2.car
+ bon.utils;version="[4.4,5)"
+Service-Component: OSGI-INF/serviceComponents.xml
+Bundle-SymbolicName: avh-federation-user-store-manager
+Bundle-Version: 2.0.2
+Bundle-Name: avh-federation-user-store-manager
+Built-By: MuhammedRahman
+Build-Jdk: 15.0.1
+

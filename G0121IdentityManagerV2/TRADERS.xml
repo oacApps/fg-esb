@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?><UserStoreManager class="Go121CustomUserStoreManager">
+	  <Property name="dataSource">jdbc/FlashTraderDb</Property>
+      <Property name="url">jdbc:oracle:thin:@192.168.0.68:1521/FLASHTP</Property>
+      <Property name="userName">WSO2</Property>
+      <Property encrypted="false" name="password">WSO2</Property>
+      <Property name="driverName">oracle.jdbc.driver.OracleDriver</Property>
+	  <Property name="defaultAutoCommit">false</Property>
+	  <Property name="initialSize">10</Property>
+	  <Property name="maxActive">100</Property>
+	  <Property name="maxWait">30000</Property>
+	  <Property name="removeAbandoned">true</Property>
+	  <Property name="removeAbandonedTimeout">60</Property>
+	  <Property name="logAbandoned">true</Property>
+	  <Property name="validationQuery">SELECT 1 FROM DUAL</Property>
+      <Property name="validationInterval">60000</Property>
+	  <Property name="testWhileIdle">true</Property>
+	  <Property name="timeBetweenEvictionRunsMillis">30000</Property>
+	  <Property name="maxIdle">100</Property>
+	  <Property name="minEvictableIdleTimeMillis">60000</Property>
+	  <Property name="minIdle">10</Property>
+	  <Property name="validationInterval">30000</Property>
+	  <Property name="testOnBorrow">true</Property>
+      <Property name="Disabled">false</Property>
+      <Property name="ReadOnly">true</Property>
+      <Property name="ReadGroups">false</Property>
+      <Property name="WriteGroups">false</Property>
+      <Property name="UsernameJavaRegEx">[a-zA-Z0-9@._-|//]{3,30}$</Property>
+      <Property name="UsernameJavaScriptRegEx">[a-zA-Z0-9._-|//]{3,30}$</Property>
+      <Property name="UsernameJavaRegExViolationErrorMsg">Username pattern policy violated.</Property>
+      <Property name="PasswordJavaRegEx">^[\S]{4,30}$</Property>
+      <Property name="PasswordJavaScriptRegEx">^[\S]{4,30}$</Property>
+      <Property name="PasswordJavaRegExViolationErrorMsg">Password pattern policy violated.</Property>
+      <Property name="RolenameJavaRegEx">^[\S]{5,30}$</Property>
+      <Property name="RolenameJavaScriptRegEx">^[\S]{5,30}$</Property>
+      <Property name="CaseInsensitiveUsername">true</Property>
+      <Property name="SCIMEnabled">false</Property>
+      <Property name="IsBulkImportSupported">false</Property>
+      <Property name="PasswordDigest">PLAIN_TEXT</Property>
+      <Property name="MultiAttributeSeparator">,</Property>
+      <Property name="StoreSaltedPassword">false</Property>
+      <Property name="MaxUserNameListLength">255</Property>
+      <Property name="MaxRoleNameListLength">100</Property>
+      <Property name="UserRolesCacheEnabled">false</Property>
+      <Property name="UserNameUniqueAcrossTenants">false</Property>
+      <Property name="CountRetrieverClass">org.wso2.carbon.identity.user.store.count.jdbc.JDBCUserStoreCountRetriever</Property>
+      <Property name="SelectUserSQL">SELECT * FROM FLASH.VW_WSO2 WHERE AUTH_USERNAME = ?</Property>
+	  <Property name="GetUserPropertiesForProfileSQL">SELECT NAME, SURNAME, USER_ID, PRIMARY_ACCOUNT_NUMBER FROM FLASH.VW_WSO2 WHERE AUTH_USERNAME = ?</Property>
+      <Property name="ClaimOperationsSupported">false</Property>
+      <Property name="DomainName">TRADERS</Property>
+      <Property name="Description"/>
+</UserStoreManager>

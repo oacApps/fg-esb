@@ -1,0 +1,1337 @@
+{
+	"info": {
+		"_postman_id": "1c7143b1-3837-4f6a-a461-83b41c851443",
+		"name": "AVH Federation ID PoC",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Flash IDP",
+			"item": [
+				{
+					"name": "SCIM2",
+					"item": [
+						{
+							"name": "Search users (primary)",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Basic Y3JlZG1hbi1zY2ltLWFkbWluOnBhc3N3b3Jk",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://dev-wso2-isd-01.flash.local/scim2/Users",
+									"protocol": "https",
+									"host": [
+										"dev-wso2-isd-01",
+										"flash",
+										"local"
+									],
+									"path": [
+										"scim2",
+										"Users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create user (primary)",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Basic Y3JlZG1hbi1zY2ltLWFkbWluOnBhc3N3b3Jk",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"schemas\": [],\r\n    \"name\": {\r\n        \"familyName\": \"deleteme\",\r\n        \"givenName\": \"createuser555\"\r\n    },\r\n    \"userName\": \"deleteme-createuser555\",\r\n    \"password\": \"password\",\r\n    \"emails\": []\r\n}"
+								},
+								"url": {
+									"raw": "https://dev-wso2-isd-01.flash.local/scim2/Users",
+									"protocol": "https",
+									"host": [
+										"dev-wso2-isd-01",
+										"flash",
+										"local"
+									],
+									"path": [
+										"scim2",
+										"Users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Change Password",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Basic Y3JlZG1hbi1zY2ltLWFkbWluOnBhc3N3b3Jk",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n     \"Operations\":[{\r\n        \"op\":\"replace\",\r\n        \"path\":\"password\",\r\n        \"value\":\"password1\"\r\n     }]\r\n   }"
+								},
+								"url": {
+									"raw": "https://dev-wso2-isd-01.flash.local/scim2/Users/3966cdc9-911a-4178-88c0-2206afc3d77b",
+									"protocol": "https",
+									"host": [
+										"dev-wso2-isd-01",
+										"flash",
+										"local"
+									],
+									"path": [
+										"scim2",
+										"Users",
+										"3966cdc9-911a-4178-88c0-2206afc3d77b"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Me",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "password1",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "GENERALIDENTITIES/test-identity2",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Basic Y3JlZG1hbi1zY2ltLWFkbWluOnBhc3N3b3Jk",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "https://dev-wso2-isd-01.flash.local/scim2/Me",
+									"protocol": "https",
+									"host": [
+										"dev-wso2-isd-01",
+										"flash",
+										"local"
+									],
+									"path": [
+										"scim2",
+										"Me"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Assign Role To User",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Basic Y3JlZG1hbi1zY2ltLWFkbWluOnBhc3N3b3Jk",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n     \"Operations\":[{\r\n      \"op\": \"add\",\r\n      \"value\": {\r\n        \"members\": [\r\n          {\r\n            \"display\": \"GENERALIDENTITIES/restapi_testuser14452\",\r\n            \"value\": \"bf653060-119e-42fc-9ed0-bb851c11ede8\"\r\n          }\r\n        ]\r\n      }\r\n    }]\r\n   }"
+								},
+								"url": {
+									"raw": "https://dev-wso2-isd-01.flash.local/scim2/Groups/836adc1b-3b9b-42d2-8231-92e678b40f5f",
+									"protocol": "https",
+									"host": [
+										"dev-wso2-isd-01",
+										"flash",
+										"local"
+									],
+									"path": [
+										"scim2",
+										"Groups",
+										"836adc1b-3b9b-42d2-8231-92e678b40f5f"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Groups",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Basic Y3JlZG1hbi1zY2ltLWFkbWluOnBhc3N3b3Jk",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://dev-wso2-isd-01.flash.local/scim2/Groups",
+									"protocol": "https",
+									"host": [
+										"dev-wso2-isd-01",
+										"flash",
+										"local"
+									],
+									"path": [
+										"scim2",
+										"Groups"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Group search",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Basic Y3JlZG1hbi1zY2ltLWFkbWluOnBhc3N3b3Jk",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"schemas\": [\n    \"urn:ietf:params:scim:api:messages:2.0:SearchRequest\"\n  ],\n  \"startIndex\": 1,\n  \"filter\": \"displayName eq Internal/scim-app-user\"\n}"
+								},
+								"url": {
+									"raw": "https://dev-wso2-isd-01.flash.local/scim2/Groups/.search",
+									"protocol": "https",
+									"host": [
+										"dev-wso2-isd-01",
+										"flash",
+										"local"
+									],
+									"path": [
+										"scim2",
+										"Groups",
+										".search"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Group search(get)",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Basic Y3JlZG1hbi1zY2ltLWFkbWluOnBhc3N3b3Jk",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"schemas\": [\n    \"urn:ietf:params:scim:api:messages:2.0:SearchRequest\"\n  ],\n  \"startIndex\": 1,\n  \"filter\": \"displayName eq scim-app-user\"\n}"
+								},
+								"url": {
+									"raw": "https://dev-wso2-isd-01.flash.local/scim2/Groups?filter=displayName eq PRIMARY/admin",
+									"protocol": "https",
+									"host": [
+										"dev-wso2-isd-01",
+										"flash",
+										"local"
+									],
+									"path": [
+										"scim2",
+										"Groups"
+									],
+									"query": [
+										{
+											"key": "filter",
+											"value": "displayName eq PRIMARY/admin"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete User",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Basic Y3JlZG1hbi1zY2ltLWFkbWluOnBhc3N3b3Jk",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"schemas\": [],\r\n    \"name\": {\r\n        \"familyName\": \"deleteme\",\r\n        \"givenName\": \"createuser2\"\r\n    },\r\n    \"userName\": \"deleteme-createuser2\",\r\n    \"password\": \"password\",\r\n    \"emails\": []\r\n}"
+								},
+								"url": {
+									"raw": "https://dev-wso2-isd-01.flash.local/scim2/Users/ac0464db-0637-49ea-8a7a-a871e14efc0b",
+									"protocol": "https",
+									"host": [
+										"dev-wso2-isd-01",
+										"flash",
+										"local"
+									],
+									"path": [
+										"scim2",
+										"Users",
+										"ac0464db-0637-49ea-8a7a-a871e14efc0b"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Change My Password",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "password2",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "GENERALIDENTITIES/test-identity2",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Basic Y3JlZG1hbi1zY2ltLWFkbWluOnBhc3N3b3Jk",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n     \"Operations\":[{\n        \"op\":\"replace\",\n        \"path\":\"password\",\n        \"value\":\"password2\"\n     }]\n   }"
+								},
+								"url": {
+									"raw": "https://dev-wso2-isd-01.flash.local/scim2/Me",
+									"protocol": "https",
+									"host": [
+										"dev-wso2-isd-01",
+										"flash",
+										"local"
+									],
+									"path": [
+										"scim2",
+										"Me"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "User search(get)",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Basic Y3JlZG1hbi1zY2ltLWFkbWluOnBhc3N3b3Jk",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"schemas\": [\n    \"urn:ietf:params:scim:api:messages:2.0:SearchRequest\"\n  ],\n  \"startIndex\": 1,\n  \"filter\": \"displayName eq scim-app-user\"\n}"
+								},
+								"url": {
+									"raw": "https://dev-wso2-isd-01.flash.local/scim2/Users?filter=userName eq GENERALIDENTITIES/restapi_testuser123",
+									"protocol": "https",
+									"host": [
+										"dev-wso2-isd-01",
+										"flash",
+										"local"
+									],
+									"path": [
+										"scim2",
+										"Users"
+									],
+									"query": [
+										{
+											"key": "filter",
+											"value": "userName eq GENERALIDENTITIES/restapi_testuser123"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update user email",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Basic Y3JlZG1hbi1zY2ltLWFkbWluOnBhc3N3b3Jk",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n     \"Operations\":[{\r\n      \"op\": \"replace\",\r\n      \"value\": {\r\n        \"emails\": [\r\n                \"thite677ter334@flash.co.za\"\r\n            ]\r\n      }\r\n    }]\r\n   }"
+								},
+								"url": {
+									"raw": "https://dev-wso2-isd-01.flash.local/scim2/Users/d065f711-1c71-4045-b02f-45b721838ddd",
+									"protocol": "https",
+									"host": [
+										"dev-wso2-isd-01",
+										"flash",
+										"local"
+									],
+									"path": [
+										"scim2",
+										"Users",
+										"d065f711-1c71-4045-b02f-45b721838ddd"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add user email",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Basic Y3JlZG1hbi1zY2ltLWFkbWluOnBhc3N3b3Jk",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n     \"Operations\":[{\r\n      \"op\": \"add\",\r\n      \"value\": {\r\n        \"emails\": [\r\n                \"thiteter334@flash.co.za\"\r\n            ]\r\n      }\r\n    }]\r\n   }"
+								},
+								"url": {
+									"raw": "https://dev-wso2-isd-01.flash.local/scim2/Users/3966cdc9-911a-4178-88c0-2206afc3d77b",
+									"protocol": "https",
+									"host": [
+										"dev-wso2-isd-01",
+										"flash",
+										"local"
+									],
+									"path": [
+										"scim2",
+										"Users",
+										"3966cdc9-911a-4178-88c0-2206afc3d77b"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "SOAP",
+					"item": [
+						{
+							"name": "AddUser",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"content-type": true
+								}
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Basic Y3JlZG1hbi1zb2FwLWFkbWluOnBhc3N3b3Jk==",
+										"type": "text"
+									},
+									{
+										"key": "SOAPAction",
+										"value": "urn:addUser",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "text/xml",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:ser=\"http://service.ws.um.carbon.wso2.org\">\r\n    <soapenv:Header/>\r\n    <soapenv:Body>\r\n        <ser:addUser>\r\n            <ser:userName>GENERALIDENTITIES/tete12</ser:userName>\r\n            <ser:credential>password</ser:credential>\r\n            <ser:requirePasswordChange>false</ser:requirePasswordChange>\r\n        </ser:addUser>\r\n    </soapenv:Body>\r\n</soapenv:Envelope>",
+									"options": {
+										"raw": {
+											"language": "xml"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://dev-wso2-isd-01.flash.local/services/RemoteUserStoreManagerService",
+									"protocol": "https",
+									"host": [
+										"dev-wso2-isd-01",
+										"flash",
+										"local"
+									],
+									"path": [
+										"services",
+										"RemoteUserStoreManagerService"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Authenticate",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"content-type": true
+								}
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Basic Y3JlZG1hbi1zb2FwLWFkbWluOnBhc3N3b3Jk==",
+										"type": "text"
+									},
+									{
+										"key": "SOAPAction",
+										"value": "urn:authenticate",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "text/xml",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:ser=\"http://service.ws.um.carbon.wso2.org\">\r\n   <soapenv:Header/>\r\n   <soapenv:Body>\r\n      <ser:authenticate>\r\n         <ser:userName>soap-addusertest</ser:userName>\r\n         <ser:credential>password</ser:credential>\r\n      </ser:authenticate>\r\n   </soapenv:Body>\r\n</soapenv:Envelope>",
+									"options": {
+										"raw": {
+											"language": "xml"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://dev-wso2-isd-01.flash.local/services/RemoteUserStoreManagerService",
+									"protocol": "https",
+									"host": [
+										"dev-wso2-isd-01",
+										"flash",
+										"local"
+									],
+									"path": [
+										"services",
+										"RemoteUserStoreManagerService"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Change Password",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"content-type": true
+								}
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Basic Y3JlZG1hbi1zb2FwLWFkbWluOnBhc3N3b3Jk==",
+										"type": "text"
+									},
+									{
+										"key": "SOAPAction",
+										"value": "urn:updateCredential",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "text/xml",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:ser=\"http://service.ws.um.carbon.wso2.org\">\r\n   <soapenv:Header/>\r\n   <soapenv:Body>\r\n      <ser:updateCredential>\r\n         <ser:userName>GENERALIDENTITIES/soap_testuser97</ser:userName>\r\n         <ser:newCredential>password123</ser:newCredential>\r\n         <ser:oldCredential>password</ser:oldCredential>\r\n      </ser:updateCredential>\r\n   </soapenv:Body>\r\n</soapenv:Envelope>",
+									"options": {
+										"raw": {
+											"language": "xml"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://dev-wso2-isd-01.flash.local/services/RemoteUserStoreManagerService",
+									"protocol": "https",
+									"host": [
+										"dev-wso2-isd-01",
+										"flash",
+										"local"
+									],
+									"path": [
+										"services",
+										"RemoteUserStoreManagerService"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Admin Update Password",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"content-type": true
+								}
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Basic YWRtaW5Ad3NvMi5jb206aWFzbmRwc2FkT0lBc2lkbnNh",
+										"type": "text"
+									},
+									{
+										"key": "SOAPAction",
+										"value": "Basic dXNlcnN0b3JlLWFkbWluOnl1QktxMmE3WnVLZXpUUTV1QkdE",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "text/xml",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:ser=\"http://service.ws.um.carbon.wso2.org\">\r\n   <soapenv:Header/>\r\n   <soapenv:Body>\r\n      <ser:updateCredentialByAdmin>\r\n         <ser:userName>soap-addusertest</ser:userName>\r\n         <ser:newCredential>password</ser:newCredential>\r\n      </ser:updateCredentialByAdmin>\r\n   </soapenv:Body>\r\n</soapenv:Envelope>",
+									"options": {
+										"raw": {
+											"language": "xml"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://dev-wso2-isd-01.flash.local/services/RemoteUserStoreManagerService",
+									"protocol": "https",
+									"host": [
+										"dev-wso2-isd-01",
+										"flash",
+										"local"
+									],
+									"path": [
+										"services",
+										"RemoteUserStoreManagerService"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetUserListWithUsername",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"content-type": true
+								}
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Basic Y3JlZG1hbi1zb2FwLWFkbWluOnBhc3N3b3Jk==",
+										"type": "text"
+									},
+									{
+										"key": "SOAPAction",
+										"value": "urn:listUsers",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "text/xml",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:ser=\"http://service.ws.um.carbon.wso2.org\">\r\n    <soapenv:Header/>\r\n    <soapenv:Body>\r\n      <ser:listUsers>\r\n         <!--Optional:-->\r\n         <ser:filter>GENERALIDENTITIES/soap-addusertest</ser:filter>\r\n         <!--Optional:-->\r\n         <ser:maxItemLimit>10</ser:maxItemLimit>\r\n      </ser:listUsers>\r\n    </soapenv:Body>\r\n</soapenv:Envelope>",
+									"options": {
+										"raw": {
+											"language": "xml"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://dev-wso2-isd-01.flash.local/services/RemoteUserStoreManagerService",
+									"protocol": "https",
+									"host": [
+										"dev-wso2-isd-01",
+										"flash",
+										"local"
+									],
+									"path": [
+										"services",
+										"RemoteUserStoreManagerService"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getRoleNames",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"content-type": true
+								}
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Basic Y3JlZG1hbi1zb2FwLWFkbWluOnBhc3N3b3Jk==",
+										"type": "text"
+									},
+									{
+										"key": "SOAPAction",
+										"value": "urn:getRoleNames",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "text/xml",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:ser=\"http://service.ws.um.carbon.wso2.org\">\r\n    <soapenv:Header/>\r\n    <soapenv:Body>\r\n      <ser:getRoleNames/>\r\n    </soapenv:Body>\r\n</soapenv:Envelope>",
+									"options": {
+										"raw": {
+											"language": "xml"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://dev-wso2-isd-01.flash.local/services/RemoteUserStoreManagerService",
+									"protocol": "https",
+									"host": [
+										"dev-wso2-isd-01",
+										"flash",
+										"local"
+									],
+									"path": [
+										"services",
+										"RemoteUserStoreManagerService"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getUserListOfRole",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"content-type": true
+								}
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Basic Y3JlZG1hbi1zb2FwLWFkbWluOnBhc3N3b3Jk==",
+										"type": "text"
+									},
+									{
+										"key": "SOAPAction",
+										"value": "urn:getUserListOfRole",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "text/xml",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:ser=\"http://service.ws.um.carbon.wso2.org\">\r\n    <soapenv:Header/>\r\n    <soapenv:Body>\r\n        <ser:getUserListOfRole>\r\n            <ser:roleName>Internal/scim-app-user</ser:roleName>\r\n        </ser:getUserListOfRole>\r\n    </soapenv:Body>\r\n</soapenv:Envelope>",
+									"options": {
+										"raw": {
+											"language": "xml"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://dev-wso2-isd-01.flash.local/services/RemoteUserStoreManagerService",
+									"protocol": "https",
+									"host": [
+										"dev-wso2-isd-01",
+										"flash",
+										"local"
+									],
+									"path": [
+										"services",
+										"RemoteUserStoreManagerService"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "updateRoleListOfUser",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"content-type": true
+								}
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Basic Y3JlZG1hbi1zb2FwLWFkbWluOnBhc3N3b3Jk==",
+										"type": "text"
+									},
+									{
+										"key": "SOAPAction",
+										"value": "urn:updateRoleListOfUser",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "text/xml",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:ser=\"http://service.ws.um.carbon.wso2.org\">\r\n    <soapenv:Header/>\r\n    <soapenv:Body>\r\n      <ser:updateRoleListOfUser>\r\n         <ser:userName>GENERALIDENTITIES/tete12</ser:userName>\r\n         <ser:newRoles>Internal/scim-app-user</ser:newRoles>\r\n        </ser:updateRoleListOfUser>\r\n    </soapenv:Body>\r\n</soapenv:Envelope>",
+									"options": {
+										"raw": {
+											"language": "xml"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://dev-wso2-isd-01.flash.local/services/RemoteUserStoreManagerService",
+									"protocol": "https",
+									"host": [
+										"dev-wso2-isd-01",
+										"flash",
+										"local"
+									],
+									"path": [
+										"services",
+										"RemoteUserStoreManagerService"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "deleteUser",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"content-type": true
+								}
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Basic Y3JlZG1hbi1zb2FwLWFkbWluOnBhc3N3b3Jk==",
+										"type": "text"
+									},
+									{
+										"key": "SOAPAction",
+										"value": "urn:getUserListOfRole",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "text/xml",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:ser=\"http://service.ws.um.carbon.wso2.org\">\r\n    <soapenv:Header/>\r\n    <soapenv:Body>\r\n        <ser:getUserListOfRole>\r\n            <ser:roleName>Internal/scim-app-user</ser:roleName>\r\n        </ser:getUserListOfRole>\r\n    </soapenv:Body>\r\n</soapenv:Envelope>",
+									"options": {
+										"raw": {
+											"language": "xml"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://dev-wso2-isd-01.flash.local/services/RemoteUserStoreManagerService",
+									"protocol": "https",
+									"host": [
+										"dev-wso2-isd-01",
+										"flash",
+										"local"
+									],
+									"path": [
+										"services",
+										"RemoteUserStoreManagerService"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "listUsers",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"content-type": true
+								}
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Basic Y3JlZG1hbi1zb2FwLWFkbWluOnBhc3N3b3Jk==",
+										"type": "text"
+									},
+									{
+										"key": "SOAPAction",
+										"value": "urn:listUsers",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "text/xml",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:ser=\"http://service.ws.um.carbon.wso2.org\">\r\n    <soapenv:Header/>\r\n    <soapenv:Body>\r\n        <ser:listUsers>\r\n         <ser:maxItemLimit>10</ser:maxItemLimit>\r\n      </ser:listUsers>\r\n    </soapenv:Body>\r\n</soapenv:Envelope>",
+									"options": {
+										"raw": {
+											"language": "xml"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://dev-wso2-isd-01.flash.local/services/RemoteUserStoreManagerService",
+									"protocol": "https",
+									"host": [
+										"dev-wso2-isd-01",
+										"flash",
+										"local"
+									],
+									"path": [
+										"services",
+										"RemoteUserStoreManagerService"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "setUserClaimValue",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"content-type": true
+								}
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Basic Y3JlZG1hbi1zb2FwLWFkbWluOnBhc3N3b3Jk==",
+										"type": "text"
+									},
+									{
+										"key": "SOAPAction",
+										"value": "urn:setUserClaimValue",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "text/xml",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:ser=\"http://service.ws.um.carbon.wso2.org\">\r\n    <soapenv:Header/>\r\n    <soapenv:Body>\r\n        <ser:setUserClaimValue>\r\n            <ser:userName>GENERALIDENTITIES/tete12</ser:userName>\r\n            <!--Optional:-->\r\n            <ser:claimURI>http://wso2.org/claims/emailaddress</ser:claimURI>\r\n            <!--Optional:-->\r\n            <ser:claimValue>thiteteru111@flash.co.za</ser:claimValue>\r\n        </ser:setUserClaimValue>\r\n    </soapenv:Body>\r\n</soapenv:Envelope>",
+									"options": {
+										"raw": {
+											"language": "xml"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://dev-wso2-isd-01.flash.local/services/RemoteUserStoreManagerService",
+									"protocol": "https",
+									"host": [
+										"dev-wso2-isd-01",
+										"flash",
+										"local"
+									],
+									"path": [
+										"services",
+										"RemoteUserStoreManagerService"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getUserClaimValue",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"content-type": true
+								}
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Basic Y3JlZG1hbi1zb2FwLWFkbWluOnBhc3N3b3Jk==",
+										"type": "text"
+									},
+									{
+										"key": "SOAPAction",
+										"value": "urn:getUserClaimValue",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "text/xml",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:ser=\"http://service.ws.um.carbon.wso2.org\">\r\n    <soapenv:Header/>\r\n    <soapenv:Body>\r\n    \r\n      <ser:getUserClaimValue>\r\n         <!--Optional:-->\r\n         <ser:userName>GENERALIDENTITIES/tete12</ser:userName>\r\n         <!--Optional:-->\r\n         <ser:claim>http://wso2.org/claims/emailaddress</ser:claim>\r\n      </ser:getUserClaimValue>\r\n    </soapenv:Body>\r\n</soapenv:Envelope>",
+									"options": {
+										"raw": {
+											"language": "xml"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://dev-wso2-isd-01.flash.local/services/RemoteUserStoreManagerService",
+									"protocol": "https",
+									"host": [
+										"dev-wso2-isd-01",
+										"flash",
+										"local"
+									],
+									"path": [
+										"services",
+										"RemoteUserStoreManagerService"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "/oauth2/token (client_credentials)",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Basic YmI4TEh6U3QwQVBrQUJJN0REQjZOV1VGREhnYTpfRGZlNTFSajN2N0s5a3JZNDZFUDNRb2JGa2Nh",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://dev-wso2-isd-01.flash.local/oauth2/token",
+							"protocol": "https",
+							"host": [
+								"dev-wso2-isd-01",
+								"flash",
+								"local"
+							],
+							"path": [
+								"oauth2",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/oauth2/token (password)",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Basic YmI4TEh6U3QwQVBrQUJJN0REQjZOV1VGREhnYTpfRGZlNTFSajN2N0s5a3JZNDZFUDNRb2JGa2Nh",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "password",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "deleteme-createuser2",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"type": "text"
+								},
+								{
+									"key": "scope",
+									"value": "openid 717988db-5f50-47aa-ac79-c43132ef1079",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://dev-wso2-isd-01.flash.local/oauth2/token",
+							"protocol": "https",
+							"host": [
+								"dev-wso2-isd-01",
+								"flash",
+								"local"
+							],
+							"path": [
+								"oauth2",
+								"token"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "APIM",
+			"item": [
+				{
+					"name": "APIM /util/jwt-review/1.0.0/jwt",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer d09567fb-e7c8-38e7-b15e-f6427e7f3ba6"
+							}
+						],
+						"url": {
+							"raw": "https://dev-wso2-apid-01.flash.co.za/util/jwt-review/1.0.0/jwt",
+							"protocol": "https",
+							"host": [
+								"dev-wso2-apid-01",
+								"flash",
+								"co",
+								"za"
+							],
+							"path": [
+								"util",
+								"jwt-review",
+								"1.0.0",
+								"jwt"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "APIM /token (client_credentials)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic UFhBaTk0T1V6dFpCNEQyb29YaGZQZ1kxUFBnYTo2Szg0b0E2NEFwVWNiQU1NS09oQ215bnV1akFh"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://dev-wso2-apid-01.flash.co.za/token",
+							"protocol": "https",
+							"host": [
+								"dev-wso2-apid-01",
+								"flash",
+								"co",
+								"za"
+							],
+							"path": [
+								"token"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
